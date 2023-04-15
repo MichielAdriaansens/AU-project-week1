@@ -14,6 +14,10 @@ label {
   color: #222;
 }
 
+label input {
+  margin-top: 5px;
+}
+
 .app {
   display: flex;
   max-width: 1400px;
@@ -59,6 +63,7 @@ input {
   letter-spacing: 1px;
   font-weight: 400;
   font-size: .9em;
+
   &:hover {
     cursor: pointer;
   }
