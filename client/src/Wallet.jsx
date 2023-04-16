@@ -23,9 +23,10 @@ function Wallet({ address, setAddress, balance, setBalance, privateKey, setPriva
   return (
     <div className="container wallet">
       <h1>Your Wallet</h1>
+      <img className="logo" src="../public/alchemy_400x400.png" alt="" />
       <label>
         Private Key 🤑🤑🤑
-        <input placeholder="Type in private key" value={privateKey} onChange={onChange}></input>
+        <input placeholder="Copy paste a Private key, see info section below" value={privateKey} onChange={onChange}></input>
       </label>
 
       <div>Address: {address}</div>
