@@ -52,18 +52,17 @@ app.post("/send", (req, res) => {
   }
 
   //public key should be sender
-  const verifiedSender = toHex(recoveredPublicKey).slice(1);
-  //sender = toHex(recoveredPublicKey.slice(-20));
+  const verifiedSender = `0x${toHex(recoveredPublicKey.slice(-20))}`;
 
-  setInitialBalance(sender);
+  setInitialBalance(verifiedSender);
   setInitialBalance(recipient);
 
-  if (balances[sender] < amount) {
+  if (balances[verifiedSender] < amount) {
     res.status(400).send({ message: "Not enough funds!" });
   } else {
-    balances[sender] -= amount;
+    balances[verifiedSender] -= amount;
     balances[recipient] += amount;
-    res.send({ balance: balances[sender], debug: verifiedSender });
+    res.send({ balance: balances[verifiedSender], debug: verifiedSender });
   }
 });
 
